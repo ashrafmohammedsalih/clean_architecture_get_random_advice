@@ -24,6 +24,7 @@ class AdviceRemoteDatasourceImpl implements AdviceRemoteDatasource {
         'content-type': 'application/json ',
       },
     );
+    
     if (response.statusCode != 200) {
       throw ServerException();
     } else {
