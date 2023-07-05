@@ -3,14 +3,15 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_advices/application/pages/advice/cubit/advice_cubit.dart';
 
 class CustomButton extends StatelessWidget {
-  const CustomButton({super.key});
+  const CustomButton({this.onTap, super.key});
+
+  final Function()? onTap;
 
   @override
   Widget build(BuildContext context) {
     final themeData = Theme.of(context);
     return InkResponse(
-      onTap: () =>
-          BlocProvider.of<AdviceCubit>(context).aviceRequested(),
+      onTap: onTap?.call(),
       child: Material(
         elevation: 20,
         borderRadius: BorderRadius.circular(15),
